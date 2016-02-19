@@ -6,7 +6,6 @@ alias acp='apt-cache policy'
 alias acse='apt-cache search'
 alias acsh='apt-cache show --no-all-versions'
 
-# ls
 alias ll='ls -olhF'
 alias la='ls -A'
 alias l='ls'
@@ -16,9 +15,9 @@ alias api='sudo apt-get install'
 alias apc='apt-cache'
 alias make='make -j12'
 alias diff="diff -u"
-alias got="git"
-alias gti="git"
-alias v="vim"
+alias got='git'
+alias gti='git'
+alias v='vim'
 
 # Colors
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then

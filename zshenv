@@ -7,8 +7,8 @@ for file in "$DOTFILES"/zsh/env/*; do
     source "$file"
 done
 
-if [[ -d "$DOTFILES/zsh/local_env" ]]; then
-    for file in "$DOTFILES"/zsh/local_env/*; do
+if [[ -d "$DOTFILES/zsh/env_local" ]]; then
+    for file in "$DOTFILES"/zsh/env_local/*; do
         source "$file"
     done
 fi
