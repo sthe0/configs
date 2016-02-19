@@ -66,7 +66,7 @@ case "$mtype" in
     testing) envcolor="yellow";;
     production) envcolor="red";;
     development) envcolor="cyan";;
-    *) on1="\[\e[36m\]";;
+    *) envcolor="yellow";;
 esac
 
 # Set up prompt
