@@ -9,7 +9,7 @@ alias acsh='apt-cache show --no-all-versions'
 # ls
 alias ll='ls -olhF'
 alias la='ls -A'
-alias l='ls -CF'
+alias l='ls'
 
 alias gp='git pkg'
 alias api='sudo apt-get install'
@@ -21,10 +21,13 @@ alias gti="git"
 alias v="vim"
 
 # Colors
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
+    eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 (which colordifff >/dev/null) || alias diff='colordiff -u'
 
 alias ipnl='ipython notebook'

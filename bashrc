@@ -41,7 +41,7 @@ unset LC_CTYPE
 
 # Enable color support of ls
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    eval "$(dircolors -b)"
 fi
 
 # Enable completion
