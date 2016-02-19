@@ -1,0 +1,65 @@
+[user]
+	name = Fedor Solovyev
+	email = the0@yandex-team.ru
+
+[color]
+    ui = true
+    diff = auto
+    branch = auto
+    status = auto
+
+[color "diff"]
+    new = bold blue
+    old = bold red
+    meta = bold green
+    frag = bold yellow
+
+[core]
+    excludesfile = ~/.gitignore
+    warnambiguousrefs = false
+	preloadindex = true
+	eol = lf
+	autocrlf = false
+	editor = vim
+
+[svn]
+    rmdir = true
+
+[status]
+	showUntrackedFiles = no
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+	chp = cherry-pick
+	squash = merge --squash
+    amend = "!f() { git commit --amend --reset-author --date=\"$(date)\" \"$@\"; }; f"
+    fix = "!f() { git commit -C HEAD --amend --reset-author --date=\"$(date)\" \"$@\"; }; f"
+
+    mod = ls-files -m
+    find = ls-tree -r --name-only HEAD
+
+    current-comment = log -1 --format=format:%s
+    current-branch = !sh -c 'git branch --no-color | awk \"/\\*/{print \\$2}\"'
+    review = !create-review
+
+    di = diff -M -C -C 
+    dic = diff -M -C -C --cached
+    diww = diff -M -C --word-diff
+    master-base = merge-base master HEAD
+    changed-from = !sh -c 'git diff $(git merge-base $1 HEAD)' -
+
+    lg = log -M -C -C --graph --decorate
+    head = log -M -C -C --graph --decorate -1
+
+    hardreset = reset --hard HEAD
+
+[push]
+    #default = upstream
+    default = tracking
+[wigit]
+	login = the0
+[branch]
+	autosetuprebase = always

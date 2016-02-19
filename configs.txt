@@ -1,0 +1,7 @@
+zshrc
+zshenv
+vimrc
+gitignore
+gitconfig
+bashrc
+bash_profile
