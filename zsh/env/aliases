@@ -27,6 +27,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 (which colordifff >/dev/null) || alias diff='colordiff -u'
 
+alias ipnl='ipython notebook'
+alias jpnl='jupyter notebook'
+
 alias please='sudo $(fc -ln -1)'
 alias fuck='$(thefuck $(fc -ln -1))'
 
