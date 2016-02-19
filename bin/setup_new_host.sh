@@ -9,4 +9,4 @@ fi
 remote_host=$1
 
 ssh-copy-id "$remote_host"
-ssh -t "$remote_host" bash -c "\"curl -L 'https://git.yandex.ru/gitweb/timofey/configs.git?a=blob_plain;f=install.sh;hb=HEAD' | bash\""
+ssh -t "$remote_host" bash -c "\"curl -L 'https://raw.githubusercontent.com/sthe0/configs/master/install.sh' | bash\""

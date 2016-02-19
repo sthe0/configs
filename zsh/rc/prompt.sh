@@ -55,7 +55,21 @@ case $TERM in
     ;;
 esac
 
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+mtype="" #override
+[ -n "$mtype" ] || mtype=`cat /etc/yandex/environment.type 2>/dev/null`
+case "$mtype" in
+    testing) envcolor="yellow";;
+    production) envcolor="red";;
+    development) envcolor="cyan";;
+    *) on1="\[\e[36m\]";;
+esac
+
 # Set up prompt
 setopt prompt_subst
-PROMPT=$'%F{green}%n%f@%F{yellow}%m%f:%B%F{blue}%~%f%b$(_mapsmobi_pkg_root)$(_colored_git_prompt)%# '
+PROMPT=$'${debian_chroot}%F{green}%n%f@%F{$envcolor}%m%f:%B%F{blue}%~%f%b$(_mapsmobi_pkg_root)$(_colored_git_prompt)%# '
 RPROMPT="%F{black}%B%*%f%b"

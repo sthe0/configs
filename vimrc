@@ -30,7 +30,7 @@ Plugin 'justinmk/vim-sneak'
 "Plugin 'scrooloose/syntastic'
 Plugin 'guyon/TabBar'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'valloric/YouCompleteMe'
+"Plugin 'valloric/YouCompleteMe'
 Plugin 'wincent/command-t'
 "Plugin 'Lokaltog/vim-easymotion'
 
@@ -240,10 +240,10 @@ sunmap e
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+" autocmd BufReadPost *
+"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \   exe "normal! g`\"" |
+"     \ endif
 
 " Remember info about open buffers on close
 set viminfo^=%
