@@ -14,24 +14,24 @@ Plugin 'gmarik/Vundle.vim'
 
 " Installed plugins
 
-Plugin 'a.vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
+" Plugin 'a.vim'
+" Plugin 'tpope/vim-sensible'
+" Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'bling/vim-airline'
+" Plugin 'kien/ctrlp.vim'
 "if v:version >= 703
     "Plugin 'airblade/vim-gitgutter'
 "endif
-Plugin 'mhinz/vim-signify'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'camelcasemotion'
-Plugin 'justinmk/vim-sneak'
+ Plugin 'mhinz/vim-signify'
+ Plugin 'scrooloose/nerdtree'
+ Plugin 'scrooloose/nerdcommenter'
+ Plugin 'camelcasemotion'
+ Plugin 'justinmk/vim-sneak'
 "Plugin 'scrooloose/syntastic'
-Plugin 'guyon/TabBar'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'guyon/TabBar'
+" Plugin 'altercation/vim-colors-solarized'
 "Plugin 'valloric/YouCompleteMe'
-Plugin 'wincent/command-t'
+" Plugin 'wincent/command-t'
 "Plugin 'Lokaltog/vim-easymotion'
 
 call vundle#end()
