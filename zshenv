@@ -3,12 +3,12 @@ export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
 export ZENV=1
 
-for file in "$DOTFILES"/zsh/env/*.sh; do
+for file in "$DOTFILES"/zsh/env/*; do
     source "$file"
 done
 
 if [[ -d "$DOTFILES/zsh/local_env" ]]; then
-    for file in "$DOTFILES"/zsh/local_env/*.sh; do
+    for file in "$DOTFILES"/zsh/local_env/*; do
         source "$file"
     done
 fi

@@ -93,6 +93,6 @@ for file in $configs; do
 done
 
 
-for file in "$DOTFILES"/setup/*.sh; do
+for file in "$DOTFILES"/setup/*; do
     bash "$file"
 done
