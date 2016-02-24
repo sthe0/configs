@@ -1,10 +1,11 @@
-if [ -f /etc/X11/Xsession.d/90gpg-agent ]; then
-    if [ -f $file ] && kill -0 `cut -d: -f2 $file` 2>/dev/null ; then
-        export `cat $file`
-    else
-        eval `gpg-agent --daemon --write-env-file`
-        echo "gpg-agent started"
-    fi
-    export GPG_TTY=`tty`
-    unset file
+GPG_FILE="$HOME/.gpg-agent-info"
+which gpg-agent > /dev/null
+if [ "$?" -eq 0 ]; then
+   if test -f $GPG_FILE &&    kill -0 $(cut -d: -f 2 $GPG_FILE) 2>/dev/null; then
+       export GPG_AGENT_INFO=$(cat $GPG_FILE)
+   elif [ -d ~/.gnupg ]; then
+       eval $(gpg-agent --daemon --default-cache-ttl 86400 --max-cache-ttl 700000)
+       echo $GPG_AGENT_INFO >$GPG_FILE
+   fi
+   export GPG_TTY=$(tty)
 fi
