@@ -165,7 +165,7 @@ set cindent
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = " " " \ - is a default
+"let mapleader = " " " \ - is a default
 "let g:mapleader = "\\"
 
 " enable normal bindings in cyrillic locale
