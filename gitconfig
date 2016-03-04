@@ -9,9 +9,9 @@
     status = auto
 
 [color "diff"]
-    new = bold blue
+    new = bold green
     old = bold red
-    meta = bold green
+    meta = cyan
     frag = bold yellow
 
 [core]
