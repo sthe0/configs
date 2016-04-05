@@ -103,7 +103,7 @@ set t_vb=
 set title
 
 " Enable mouse
-set mouse=a
+set mouse=
 
 " Show line numbers
 set number
