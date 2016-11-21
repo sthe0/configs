@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
 
 " Installed plugins
 
@@ -22,11 +22,11 @@ Plugin 'gmarik/Vundle.vim'
 "if v:version >= 703
     "Plugin 'airblade/vim-gitgutter'
 "endif
- Plugin 'mhinz/vim-signify'
- Plugin 'scrooloose/nerdtree'
- Plugin 'scrooloose/nerdcommenter'
- Plugin 'camelcasemotion'
- Plugin 'justinmk/vim-sneak'
+"  Plugin 'mhinz/vim-signify'
+"  Plugin 'scrooloose/nerdtree'
+"  Plugin 'scrooloose/nerdcommenter'
+"  Plugin 'camelcasemotion'
+"  Plugin 'justinmk/vim-sneak'
 "Plugin 'scrooloose/syntastic'
 " Plugin 'guyon/TabBar'
 " Plugin 'altercation/vim-colors-solarized'
