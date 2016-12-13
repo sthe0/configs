@@ -52,7 +52,7 @@ link_file() {
 
 
 clone_repo() {
-    git clone git+ssh://git.yandex.ru/timofey/configs.git "$1"
+    git clone git+ssh://git.yandex.ru/sthe0/configs.git "$1"
 }
 
 
