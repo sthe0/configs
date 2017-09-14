@@ -138,10 +138,10 @@ if has("gui_running")
 endif
 
 " Colors for sign column
-highlight SignColumn guibg=none ctermbg=none
-highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight DiffAdd           cterm=bold ctermbg=NONE ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=NONE ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=NONE ctermfg=227
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
