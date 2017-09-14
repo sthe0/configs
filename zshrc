@@ -16,3 +16,5 @@ if [[ -d "$DOTFILES/zsh/rc_local" ]]; then
 fi
 
 
+
+source /Users/the0/.yql/shell_completion

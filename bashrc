@@ -49,3 +49,5 @@ fi
 
 function gpg_update() { eval `cat ~/.gpg-agent-info`; }
 function gpg_restart() { killall pinentry; killall gpg-agent; gpg-agent --daemon --write-env-file; gpg_update; }
+
+source /Users/the0/.yql/shell_completion

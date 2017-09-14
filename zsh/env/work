@@ -2,4 +2,5 @@ export EMAIL="the0@yandex-team.ru"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Fedor Solovyev"
 export GNUPGHOME="$HOME/.gnupg"
-
+export SVN_EDITOR=vim
+export EDITOR=vim
