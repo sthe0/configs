@@ -14,6 +14,7 @@ call vundle#begin()
 
 " Installed plugins
 
+vim-xkbswitch
 " Plugin 'a.vim'
 " Plugin 'tpope/vim-sensible'
 " Plugin 'terryma/vim-multiple-cursors'
