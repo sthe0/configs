@@ -17,7 +17,8 @@ alias make='make -j12'
 alias diff="diff -u"
 alias got='git'
 alias gti='git'
-alias v='vim'
+alias vim='ya vim'
+alias v='ya vim'
 
 # Colors
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then
@@ -42,4 +43,4 @@ fi
 
 if ! which vim > /dev/null; then alias v="vi"; fi
 alias ssh='ssh -Y'
-
+alias venv="source $HOME/vins-venv/bin/activate"

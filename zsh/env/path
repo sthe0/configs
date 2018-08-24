@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:$DOTFILES/bin:$PATH:$HOME/anaconda/bin"
+export PATH="$HOME/bin:$DOTFILES/bin:$PATH:$HOME/.local/bin:$HOME/anaconda/bin"
 if [ -n "$PKG_ROOT" ]; then
     export PATH="$PKG_ROOT/bin:$PATH"
     rc=$PKG_ROOT/bin/load_profile.sh
