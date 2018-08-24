@@ -8,5 +8,5 @@ fi
 
 remote_host=$1
 
-ssh-copy-id "$remote_host"
+#ssh-copy-id "$remote_host"
 ssh -t "$remote_host" bash -c "\"curl -L 'https://raw.githubusercontent.com/sthe0/configs/master/install.sh' | bash\""
