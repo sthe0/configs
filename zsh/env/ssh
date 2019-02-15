@@ -44,3 +44,8 @@ unset env
 
 alias fix-ssh-agent-fwd='SSH_AUTH_SOCK="$(find $(ls -ldt /tmp/ssh-* | fgrep $USER | head -1 | perl -npae '"'"'$_=$F[$#F]'"'"') -type s | head -1)"'
 
+if [ "$SSH_AUTH_SOCK" != "" ] && [ "$SSH_AUTH_SOCK" != ~/.ssh_auth_sock ]; then
+   rm ~/.ssh_auth_sock
+   ln -s $SSH_AUTH_SOCK ~/.ssh_auth_sock
+   export SSH_AUTH_SOCK=~/.ssh_auth_sock
+fi
