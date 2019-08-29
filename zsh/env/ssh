@@ -1,5 +1,5 @@
 env=~/.ssh/agent.env
-
+# 
 # Note: Don't bother checking SSH_AGENT_PID. It's not used
 #       by SSH itself, and it might even be incorrect
 #       (for example, when using agent-forwarding over SSH).
@@ -17,16 +17,23 @@ agent_is_running() {
 }
 
 agent_has_keys() {
+    echo "Checking agent keys..." >&2
     ssh-add -l >/dev/null 2>&1
 }
 
 agent_load_env() {
+    echo "Loading agent..." >&2
     . "$env" >/dev/null
+    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+    export SSH_AUTH_SOCK=~/ssh_auth_sock
 }
 
 agent_start() {
+    echo "Starting agent..." >&2
     (umask 077; ssh-agent >"$env")
     . "$env" >/dev/null
+    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+    export SSH_AUTH_SOCK=~/ssh_auth_sock
 }
 
 if ! agent_is_running; then
@@ -42,10 +49,31 @@ fi
 
 unset env
 
+# if [ -z "$SSH_AUTH_SOCK" ]
+# then
+#    # Check for a currently running instance of the agent
+#    RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+#    if [ "$RUNNING_AGENT" = "0" ]
+#    then
+#         # Launch a new instance of the agent
+#         ssh-agent -s &> .ssh/ssh-agent
+#    fi
+#    eval `cat .ssh/ssh-agent`
+# fi
+
+# only when piping a script to bash
+# if [ "$-" = hBc ] && [ "${BASH_EXECUTION_STRING:-}" = bash ] \
+#     && [ -S "${SSH_AUTH_SOCK:-}" ] && ! [ -L "$SSH_AUTH_SOCK" ]
+# then
+#     ssh_auth_sock_fixed="$HOME/.ssh/ssh_auth_sock"
+#     [ "$(SSH_AUTH_SOCK="$ssh_auth_sock_fixed" ssh-add || echo $?)" = 2 ] \
+#         && ln -snf -- "$SSH_AUTH_SOCK" "$ssh_auth_sock_fixed"
+#     export SSH_AUTH_SOCK="$ssh_auth_sock_fixed"
+# fi
+
 alias fix-ssh-agent-fwd='SSH_AUTH_SOCK="$(find $(ls -ldt /tmp/ssh-* | fgrep $USER | head -1 | perl -npae '"'"'$_=$F[$#F]'"'"') -type s | head -1)"'
 
-if [ "$SSH_AUTH_SOCK" != "" ] && [ "$SSH_AUTH_SOCK" != ~/.ssh_auth_sock ]; then
-   rm ~/.ssh_auth_sock
-   ln -s $SSH_AUTH_SOCK ~/.ssh_auth_sock
-   export SSH_AUTH_SOCK=~/.ssh_auth_sock
+if [ "$SSH_AUTH_SOCK" != "" ] && [ "$SSH_AUTH_SOCK" != ~/ssh_auth_sock ]; then
+    ln -sf $SSH_AUTH_SOCK ~/ssh_auth_sock
+    export SSH_AUTH_SOCK=~/ssh_auth_sock
 fi

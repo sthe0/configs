@@ -17,4 +17,4 @@ fi
 
 
 
-source /Users/the0/.yql/shell_completion
+source $HOME/.yql/shell_completion

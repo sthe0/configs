@@ -14,7 +14,7 @@ call vundle#begin()
 
 " Installed plugins
 
-vim-xkbswitch
+Plugin 'vim-xkbswitch'
 " Plugin 'a.vim'
 " Plugin 'tpope/vim-sensible'
 " Plugin 'terryma/vim-multiple-cursors'
@@ -268,4 +268,6 @@ set laststatus=2
 
 " > in fonts
 let g:airline_powerline_fonts = 1
-
+" let g:XkbSwitchLib = '/usr/local/lib/libxkbswitch.so'
+" let g:XkbSwitchEnabled = 1
+let g:XkbSwitchIMappings = ['ru']

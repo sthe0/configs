@@ -27,3 +27,4 @@ compinit -C
 
 compdef tmuxto=ping
 compdef setup_new_host.sh=ping
+
