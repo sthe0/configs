@@ -14,7 +14,3 @@ if [[ -d "$DOTFILES/zsh/rc_local" ]]; then
         source "$file"
     done
 fi
-
-
-
-source $HOME/.yql/shell_completion
