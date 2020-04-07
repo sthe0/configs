@@ -24,16 +24,16 @@ agent_has_keys() {
 agent_load_env() {
     echo "Loading agent..." >&2
     . "$env" >/dev/null
-    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
-    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+#    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+#    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 }
 
 agent_start() {
     echo "Starting agent..." >&2
     (umask 077; ssh-agent >"$env")
     . "$env" >/dev/null
-    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
-    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+#    ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+#    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 }
 
 if ! agent_is_running; then
@@ -73,11 +73,13 @@ unset env
 
 alias fix-ssh-agent-fwd='SSH_AUTH_SOCK="$(find $(ls -ldt /tmp/ssh-* | fgrep $USER | head -1 | perl -npae '"'"'$_=$F[$#F]'"'"') -type s | head -1)"'
 
-#SSH_AUTH_SOCK_REALPATH=$(realpath -s "$SSH_AUTH_SOCK")
-#SSH_AUTH_SOCK_NEW_PATH=$(realpath -s "$HOME/.ssh/ssh_auth_sock")
-#
-#if [ "$SSH_AUTH_SOCK" != "" ] && [ "$SSH_AUTH_SOCK_REALPATH" != "$SSH_AUTH_SOCK_NEW_PATH" ]; then
-#    ln -sf "$SSH_AUTH_SOCK" "$SSH_AUTH_SOCK_NEW_PATH"
-#    export SSH_AUTH_SOCK="$SSH_AUTH_SOCK_NEW_PATH"
-#fi
+SSH_AUTH_SOCK_REALPATH=$(realpath -s "$SSH_AUTH_SOCK")
+SSH_AUTH_SOCK_NEW_PATH=$(realpath -s "$HOME/.ssh/ssh_auth_sock")
+
+echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK_REALPATH"
+
+if [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK_REALPATH" != "$SSH_AUTH_SOCK_NEW_PATH" ] && [ -S "$SSH_AUTH_SOCK" ] && ! [ -L "$SSH_AUTH_SOCK" ]; then
+    ln -sf "$SSH_AUTH_SOCK_REALPATH" "$SSH_AUTH_SOCK_NEW_PATH"
+    export SSH_AUTH_SOCK="$SSH_AUTH_SOCK_NEW_PATH"
+fi
 
