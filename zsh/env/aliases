@@ -17,8 +17,7 @@ alias make='make -j12'
 alias diff="diff -u"
 alias got='git'
 alias gti='git'
-alias vim='ya vim'
-alias v='ya vim'
+alias v='vim'
 
 # Colors
 if [ "$TERM" != "dumb" ] && [ -x /usr/bin/dircolors ]; then

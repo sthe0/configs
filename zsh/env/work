@@ -1,4 +1,4 @@
-export EMAIL="the0@yandex-team.ru"
+export EMAIL="the0@yandex.ru"
 export DEBEMAIL=$EMAIL
 export DEBFULLNAME="Fedor Solovyev"
 export GNUPGHOME="$HOME/.gnupg"
